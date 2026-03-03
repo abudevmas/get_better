@@ -1,0 +1,119 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Get Well Soon 💛</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ffd6e8, #d6f0ff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      overflow: hidden;
+    }.card {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+  text-align: center;
+  max-width: 420px;
+  position: relative;
+  z-index: 2;
+  animation: fadeIn 1.2s ease;
+}
+
+h1 {
+  font-size: 28px;
+  color: #ff4d88;
+  margin-bottom: 15px;
+}
+
+p {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.btn {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 30px;
+  background: #ff4d88;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btn:hover {
+  background: #ff2d75;
+  transform: scale(1.05);
+}
+
+.hidden-message {
+  margin-top: 15px;
+  font-size: 15px;
+  color: #444;
+  display: none;
+}
+
+.heart {
+  position: absolute;
+  font-size: 20px;
+  animation: floatUp 6s linear infinite;
+  opacity: 0.7;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0) scale(1); opacity: 0.7; }
+  100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+  </style>
+</head>
+<body>  <div class="card">
+    <h1>Get Well Soon 💛</h1>
+    <p>
+      I heard you're not feeling well and that makes me sad 😔<br><br>
+      Please take proper rest, drink warm fluids, and take your medicine on time.
+      Your health matters a lot.
+    </p><button class="btn" onclick="showMessage()">Click for a small surprise ✨</button>
+
+<div class="hidden-message" id="extraMessage">
+  Even if I can't be there physically, I'm sending you positive energy,
+  warmth, and a virtual hug 🤍<br><br>
+  Get better soon... I like seeing you happy and smiling 🌸
+</div>
+
+  </div>  <script>
+    function showMessage() {
+      document.getElementById("extraMessage").style.display = "block";
+    }
+
+    // Floating hearts
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerHTML = "💖";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = (Math.random() * 10 + 15) + "px";
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 6000);
+    }
+
+    setInterval(createHeart, 800);
+  </script></body>
+</html>
